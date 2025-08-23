@@ -3,6 +3,11 @@
 ## Overview
 ExpenseTracker is a personal finance management application built with React and Express.js. It helps users manage their expenses, income, debts, reminders, and provides AI-powered insights through a chat interface. The application features a modern, responsive design using shadcn/ui components and supports multiple account types for comprehensive financial tracking.
 
+## Recent Changes
+- **August 23, 2025**: Migrated AI service from Anthropic to Google Gemini AI for improved financial insights and student-focused recommendations
+- **AI Integration**: Now using gemini-2.5-flash for real-time chat responses and gemini-2.5-pro for detailed spending analysis
+- **Enhanced Features**: Improved conversational expense tracking and personalized financial recommendations for college students
+
 ## User Preferences
 Preferred communication style: Simple, everyday language.
 
@@ -37,7 +42,7 @@ Preferred communication style: Simple, everyday language.
 - **Security**: Basic CORS and request parsing middleware configured
 
 ### External Service Integrations
-- **AI Services**: OpenAI GPT-4o integration for financial insights and chat assistance
+- **AI Services**: Google Gemini AI (gemini-2.5-flash, gemini-2.5-pro) integration for financial insights and chat assistance
 - **Font Loading**: Google Fonts integration for typography (Inter, Architects Daughter, DM Sans, Fira Code, Geist Mono)
 - **Development Tools**: Replit-specific development banner and error overlay plugins
 
@@ -72,5 +77,5 @@ Preferred communication style: Simple, everyday language.
 - **Code Quality**: TypeScript for static type checking
 
 ### AI and External APIs
-- **OpenAI**: GPT-4o integration for intelligent financial assistance and insights
+- **Google Gemini AI**: Advanced AI integration using gemini-2.5-flash for conversational chat and gemini-2.5-pro for detailed spending insights and analysis
 - **Environment**: dotenv for environment variable management
