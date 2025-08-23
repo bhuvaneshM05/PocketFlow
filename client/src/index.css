@@ -1,0 +1,197 @@
+@import url('https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700&display=swap');
+@tailwind base;
+@tailwind components;
+@tailwind utilities;
+
+:root {
+  --background: hsl(0 0% 100%);
+  --foreground: hsl(210 25% 7.8431%);
+  --card: hsl(0 0% 100%);
+  --card-foreground: hsl(210 25% 7.8431%);
+  --popover: hsl(0 0% 100%);
+  --popover-foreground: hsl(210 25% 7.8431%);
+  --primary: hsl(245 58% 61%);
+  --primary-foreground: hsl(0 0% 100%);
+  --secondary: hsl(159 74% 43%);
+  --secondary-foreground: hsl(0 0% 100%);
+  --muted: hsl(240 2% 90%);
+  --muted-foreground: hsl(210 25% 7.8431%);
+  --accent: hsl(43 92% 56%);
+  --accent-foreground: hsl(210 25% 7.8431%);
+  --destructive: hsl(356 91% 54%);
+  --destructive-foreground: hsl(0 0% 100%);
+  --border: hsl(214 32% 91%);
+  --input: hsl(200 23% 97%);
+  --ring: hsl(203 89% 53%);
+  --chart-1: hsl(245 58% 61%);
+  --chart-2: hsl(159 74% 43%);
+  --chart-3: hsl(43 92% 56%);
+  --chart-4: hsl(147 78% 42%);
+  --chart-5: hsl(341 75% 51%);
+  --sidebar: hsl(0 0% 100%);
+  --sidebar-foreground: hsl(210 25% 7.8431%);
+  --sidebar-primary: hsl(245 58% 61%);
+  --sidebar-primary-foreground: hsl(0 0% 100%);
+  --sidebar-accent: hsl(214 32% 91%);
+  --sidebar-accent-foreground: hsl(245 58% 61%);
+  --sidebar-border: hsl(214 32% 91%);
+  --sidebar-ring: hsl(203 89% 53%);
+  --font-sans: 'Inter', sans-serif;
+  --font-serif: Georgia, serif;
+  --font-mono: Menlo, monospace;
+  --radius: 0.75rem;
+  
+  /* Custom theme colors matching the design */
+  --expense-red: hsl(0 84% 60%);
+  --income-green: hsl(159 74% 43%);
+  --warning-yellow: hsl(43 92% 56%);
+  --info-blue: hsl(217 91% 60%);
+  --purple-accent: hsl(262 83% 58%);
+  
+  /* Category colors */
+  --category-food: hsl(0 84% 60%);
+  --category-transport: hsl(217 91% 60%);
+  --category-entertainment: hsl(159 74% 43%);
+  --category-study: hsl(262 83% 58%);
+  --category-mess: hsl(43 92% 56%);
+  --category-other: hsl(210 11% 71%);
+}
+
+.dark {
+  --background: hsl(0 0% 0%);
+  --foreground: hsl(200 7% 91%);
+  --card: hsl(228 10% 10%);
+  --card-foreground: hsl(0 0% 85%);
+  --popover: hsl(0 0% 0%);
+  --popover-foreground: hsl(200 7% 91%);
+  --primary: hsl(245 58% 61%);
+  --primary-foreground: hsl(0 0% 100%);
+  --secondary: hsl(195 15% 95%);
+  --secondary-foreground: hsl(210 25% 7.8431%);
+  --muted: hsl(0 0% 9%);
+  --muted-foreground: hsl(210 3% 46%);
+  --accent: hsl(206 70% 8%);
+  --accent-foreground: hsl(245 58% 61%);
+  --destructive: hsl(356 91% 54%);
+  --destructive-foreground: hsl(0 0% 100%);
+  --border: hsl(210 5% 15%);
+  --input: hsl(208 28% 18%);
+  --ring: hsl(203 89% 53%);
+  --chart-1: hsl(245 58% 61%);
+  --chart-2: hsl(159 74% 43%);
+  --chart-3: hsl(43 92% 56%);
+  --chart-4: hsl(147 78% 42%);
+  --chart-5: hsl(341 75% 51%);
+  --sidebar: hsl(228 10% 10%);
+  --sidebar-foreground: hsl(0 0% 85%);
+  --sidebar-primary: hsl(203 89% 53%);
+  --sidebar-primary-foreground: hsl(0 0% 100%);
+  --sidebar-accent: hsl(206 70% 8%);
+  --sidebar-accent-foreground: hsl(245 58% 61%);
+  --sidebar-border: hsl(206 16% 26%);
+  --sidebar-ring: hsl(203 89% 53%);
+}
+
+@layer base {
+  * {
+    @apply border-border;
+  }
+
+  body {
+    @apply bg-background text-foreground font-sans antialiased;
+    font-family: var(--font-sans);
+  }
+
+  h1, h2, h3, h4, h5, h6 {
+    @apply font-semibold;
+  }
+}
+
+@layer components {
+  .bg-category-food {
+    background-color: var(--category-food);
+  }
+  
+  .bg-category-transport {
+    background-color: var(--category-transport);
+  }
+  
+  .bg-category-entertainment {
+    background-color: var(--category-entertainment);
+  }
+  
+  .bg-category-study {
+    background-color: var(--category-study);
+  }
+  
+  .bg-category-mess {
+    background-color: var(--category-mess);
+  }
+  
+  .bg-category-other {
+    background-color: var(--category-other);
+  }
+  
+  .text-category-food {
+    color: var(--category-food);
+  }
+  
+  .text-category-transport {
+    color: var(--category-transport);
+  }
+  
+  .text-category-entertainment {
+    color: var(--category-entertainment);
+  }
+  
+  .text-category-study {
+    color: var(--category-study);
+  }
+  
+  .text-category-mess {
+    color: var(--category-mess);
+  }
+  
+  .text-category-other {
+    color: var(--category-other);
+  }
+}
+
+@layer utilities {
+  .animate-bounce {
+    animation: bounce 1s infinite;
+  }
+  
+  .animate-bounce.delay-100 {
+    animation-delay: 0.1s;
+  }
+  
+  .animate-bounce.delay-200 {
+    animation-delay: 0.2s;
+  }
+}
+
+/* Custom scrollbar */
+::-webkit-scrollbar {
+  width: 6px;
+}
+
+::-webkit-scrollbar-track {
+  background: hsl(var(--muted));
+}
+
+::-webkit-scrollbar-thumb {
+  background: hsl(var(--border));
+  border-radius: 3px;
+}
+
+::-webkit-scrollbar-thumb:hover {
+  background: hsl(var(--muted-foreground));
+}
+
+/* Responsive design adjustments */
+@media (max-width: 768px) {
+  .pb-20 {
+    padding-bottom: 5rem;
+  }
+}
