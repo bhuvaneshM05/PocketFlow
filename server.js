@@ -1,7 +1,12 @@
-const express = require('express');
-const path = require('path');
-const { Pool } = require('pg');
-const { randomUUID } = require('crypto');
+import express from 'express';
+import path from 'path';
+import pg from 'pg';
+import { randomUUID } from 'crypto';
+import { fileURLToPath } from 'url';
+
+const { Pool } = pg;
+const __filename = fileURLToPath(import.meta.url);
+const __dirname = path.dirname(__filename);
 
 const app = express();
 app.use(express.json());
