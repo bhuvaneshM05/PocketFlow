@@ -663,9 +663,11 @@ async function submitTransaction(event, type = null) {
     };
     
     console.log('Submitting transaction data:', data);
+    console.log('Transaction data JSON:', JSON.stringify(data));
     
     try {
-        await api.post('/transactions', data);
+        const response = await api.post('/transactions', data);
+        console.log('Transaction response:', response);
         
         // Close modal and reset form
         if (type === 'income') {
@@ -680,6 +682,7 @@ async function submitTransaction(event, type = null) {
         
     } catch (error) {
         console.error('Failed to add transaction:', error);
+        console.error('Error details:', error.response?.data);
         showToast('Failed to add transaction. Please try again.', 'error');
     }
 }
