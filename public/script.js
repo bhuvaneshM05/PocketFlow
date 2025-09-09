@@ -629,7 +629,6 @@ async function submitTransaction(event, type = null) {
     event.preventDefault();
     
     const form = event.target;
-    const formData = new FormData(form);
     
     // Determine transaction type
     const transactionType = type || document.getElementById('transactionType').value;
@@ -649,13 +648,21 @@ async function submitTransaction(event, type = null) {
         accountId = document.getElementById('account').value;
     }
     
+    // Validate required fields
+    if (!accountId || !amount || !description || !category) {
+        showToast('Please fill in all required fields.', 'error');
+        return;
+    }
+    
     const data = {
         accountId,
         type: transactionType,
-        amount: parseFloat(amount),
+        amount: amount.toString(), // Send as string to match decimal type
         description,
         category
     };
+    
+    console.log('Submitting transaction data:', data);
     
     try {
         await api.post('/transactions', data);
@@ -680,12 +687,25 @@ async function submitTransaction(event, type = null) {
 async function submitDebt(event) {
     event.preventDefault();
     
+    const friendName = document.getElementById('debtFriend').value;
+    const amount = document.getElementById('debtAmount').value;
+    const description = document.getElementById('debtDescription').value;
+    const type = document.getElementById('debtType').value;
+    
+    // Validate required fields
+    if (!friendName || !amount || !description || !type) {
+        showToast('Please fill in all required fields.', 'error');
+        return;
+    }
+    
     const data = {
-        friendName: document.getElementById('debtFriend').value,
-        amount: parseFloat(document.getElementById('debtAmount').value),
-        description: document.getElementById('debtDescription').value,
-        type: document.getElementById('debtType').value
+        friendName,
+        amount: amount.toString(), // Send as string to match decimal type
+        description,
+        type
     };
+    
+    console.log('Submitting debt data:', data);
     
     try {
         await api.post('/debts', data);
@@ -701,12 +721,25 @@ async function submitDebt(event) {
 async function submitReminder(event) {
     event.preventDefault();
     
+    const title = document.getElementById('reminderTitle').value;
+    const amount = document.getElementById('reminderAmount').value;
+    const dueDate = document.getElementById('reminderDate').value;
+    const description = document.getElementById('reminderDescription').value;
+    
+    // Validate required fields
+    if (!title || !amount || !dueDate) {
+        showToast('Please fill in all required fields.', 'error');
+        return;
+    }
+    
     const data = {
-        title: document.getElementById('reminderTitle').value,
-        amount: parseFloat(document.getElementById('reminderAmount').value),
-        dueDate: document.getElementById('reminderDate').value,
-        description: document.getElementById('reminderDescription').value || null
+        title,
+        amount: amount.toString(), // Send as string to match decimal type
+        dueDate: new Date(dueDate).toISOString(), // Convert to ISO string
+        description: description || undefined // Don't send null, use undefined
     };
+    
+    console.log('Submitting reminder data:', data);
     
     try {
         await api.post('/reminders', data);
